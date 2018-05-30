@@ -1,0 +1,6 @@
+<% if @global_items.any? %>
+  <ol class="microposts">
+    <%= render @global_items %>
+  </ol>
+  <%= will_paginate @global_items %>
+<% end %>
