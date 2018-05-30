@@ -15,18 +15,18 @@
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>News Feed</h3>
+      <h3>Following</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>
 <% else %>
-<div class="center jumbotron">
-  <h1>WELCOME TO STATUS</h1>
+<body class="home">
+    <div class="center">
+      <h1>STATUS BETA</h1>
+      <h5>A NEW SOCIAL NETWORK</h5>
 
-  <h2>
-    a network for all
-  </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+</body>
 <% end %>
