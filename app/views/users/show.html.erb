@@ -5,10 +5,16 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+
       </h1>
+
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
+    </section>
+    <section>
+        <h1>Bio</h1>
+        <p><%= @user.bio %></p>
     </section>
 
   </aside>
