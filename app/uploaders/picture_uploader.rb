@@ -6,7 +6,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [450, 450]
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
 
   #commet
 
