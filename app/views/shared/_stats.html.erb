@@ -14,7 +14,7 @@
   </a>
   <a href="<%= followers_user_path(@user) %>">
     <strong id="followers" class="stat">
-      <%= @user.followers.count %>
+      <%= @user.followers.count + @user.microposts.count%>
     </strong>
     Status Points
   </a>
