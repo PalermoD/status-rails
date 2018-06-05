@@ -18,6 +18,47 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def upvote
+        @micropost = Micropost.find(params[:id])
+
+        respond_to do |format|
+        unless current_user.voted_for? @micropost
+          format.html { redirect_to :back }
+          format.json { head :no_content }
+          format.js { render :layout => false }
+          #@micropost.cached_votes_total = @micropost.cached_votes_total + 1
+          @micropost.save
+          @micropost.upvote_by current_user
+        else
+          flash[:danger] = 'You allready voted this entry'
+          format.html { redirect_to :back }
+          format.json { head :no_content }
+          format.js
+        end
+      end
+    end
+
+
+    def downvote
+        @micropost = Micropost.find(params[:id])
+
+        respond_to do |format|
+        unless current_user.voted_for? @micropost
+          format.html { redirect_to :back }
+          format.json { head :no_content }
+          format.js { render :layout => false }
+          #@micropost.cached_votes_total = @micropost.cached_votes_total + 1
+          @micropost.save
+          @micropost.downvote_by current_user
+        else
+          flash[:danger] = 'You allready voted this entry'
+          format.html { redirect_to :back }
+          format.json { head :no_content }
+          format.js
+        end
+      end
+    end
+
   private
 
     def micropost_params

@@ -17,7 +17,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :microposts,          only: [:create, :destroy]
+  resources :microposts do 
+    member do
+      get "like", to: "microposts#upvote"
+      get "dislike", to: "microposts#downvote"
+    end
+  end
+
   resources :relationships,       only: [:create, :destroy]
 
 end
