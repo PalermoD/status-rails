@@ -9,8 +9,7 @@ class StaticPagesController < ApplicationController
   def global
       if logged_in?
        @micropost  = current_user.microposts.build
-       @global_items = Micropost.all.paginate(page: params[:page])
-       @microposts = Micropost.all
+       @global_items = current_user.global.paginate(page: params[:page])
      end
   end
 

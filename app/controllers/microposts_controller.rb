@@ -26,7 +26,7 @@ class MicropostsController < ApplicationController
           format.html { redirect_to :back }
           format.json { head :no_content }
           format.js { render :layout => false }
-          #@micropost.cached_votes_total = @micropost.cached_votes_total + 1
+          @micropost.cached_votes_total = @micropost.cached_votes_total + 1
           @micropost.save
           @micropost.upvote_by current_user
         else
@@ -47,7 +47,7 @@ class MicropostsController < ApplicationController
           format.html { redirect_to :back }
           format.json { head :no_content }
           format.js { render :layout => false }
-          #@micropost.cached_votes_total = @micropost.cached_votes_total + 1
+          @micropost.cached_votes_total = @micropost.cached_votes_total + 1
           @micropost.save
           @micropost.downvote_by current_user
         else

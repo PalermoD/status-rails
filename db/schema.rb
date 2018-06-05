@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_04_224138) do
+ActiveRecord::Schema.define(version: 2018_06_05_102212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2018_06_04_224138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.index ["cached_votes_down"], name: "index_microposts_on_cached_votes_down"
+    t.index ["cached_votes_score"], name: "index_microposts_on_cached_votes_score"
+    t.index ["cached_votes_total"], name: "index_microposts_on_cached_votes_total"
+    t.index ["cached_votes_up"], name: "index_microposts_on_cached_votes_up"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
