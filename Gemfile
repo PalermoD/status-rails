@@ -23,6 +23,8 @@ gem 'unicorn'
 
 gem 'rack-timeout'
 
+gem "font-awesome-rails"
+
 #gem 'derailed', group: :development
 
 

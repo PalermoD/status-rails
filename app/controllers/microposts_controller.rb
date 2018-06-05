@@ -30,7 +30,7 @@ class MicropostsController < ApplicationController
           @micropost.save
           @micropost.upvote_by current_user
         else
-          flash[:danger] = 'You allready voted this entry'
+
           format.html { redirect_to :back }
           format.json { head :no_content }
           format.js
@@ -51,7 +51,7 @@ class MicropostsController < ApplicationController
           @micropost.save
           @micropost.downvote_by current_user
         else
-          flash[:danger] = 'You allready voted this entry'
+
           format.html { redirect_to :back }
           format.json { head :no_content }
           format.js
