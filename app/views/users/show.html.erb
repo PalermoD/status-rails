@@ -15,9 +15,24 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+
     <section>
         <h1>Bio</h1>
         <p><%= @user.bio %></p>
+    </section>
+
+    <section class="micropost_form">
+        <% if private_user %>
+
+
+  		<section >
+  			<%= render 'shared/micropost_form' %>
+  		</section>
+
+
+  	<% else %>
+  	<% end %>
+
     </section>
 
   </aside>

@@ -44,6 +44,10 @@ def current_user
   end
 end
 
+def private_user
+      @user = User.find(params[:id])
+end
+
     # Returns true if the user is logged in, false otherwise.
     def logged_in?
         !current_user.nil?
