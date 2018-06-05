@@ -60,6 +60,11 @@ class User < ApplicationRecord
           Micropost.order(:cached_votes_score => :desc)
       end
 
+      def newposts
+          #microposts
+          Micropost.all
+      end
+
       # Follows a user.
       def follow(other_user)
         following << other_user

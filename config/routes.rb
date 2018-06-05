@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'users/new'
   root 'static_pages#home'
   get  '/global',    to: 'static_pages#global'
+  get  '/new',    to: 'static_pages#newposts'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/signup',  to: 'users#new'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :microposts do 
+  resources :microposts do
     member do
       get "like", to: "microposts#upvote"
       get "dislike", to: "microposts#downvote"
