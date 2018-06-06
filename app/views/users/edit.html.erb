@@ -6,6 +6,19 @@
     <%= form_for(@user) do |f| %>
        <%= render 'shared/error_messages', object: f.object %>
 
+      <%= f.label :profile_image %>
+
+
+
+      <div class="gravatar_edit">
+          <%= image_tag @user.picture.url if @user.picture? %>
+          <span class="picture">
+              <%= f.file_field :picture %>
+          </span>
+      </div>
+
+
+
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
@@ -17,12 +30,11 @@
 
 
 
+
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
+
   </div>
 </div>

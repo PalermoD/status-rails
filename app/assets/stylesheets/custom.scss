@@ -166,7 +166,15 @@ aside {
 }
 
 .gravatar_edit {
-  margin-top: 15px;
+
+
+
+  img {
+     border-radius: 50px;
+     height: 80px;
+     width: 80px;
+     margin-bottom: 5px;
+  }
 }
 
 
@@ -452,4 +460,12 @@ a {
     max-width: 100%;
 
     height: auto;
+}
+
+
+.picture {
+    input {
+        width: 50%;
+
+    }
 }

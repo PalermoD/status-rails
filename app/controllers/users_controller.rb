@@ -70,11 +70,11 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email, :bio, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :bio, :password, :password_confirmation, :profile_image, :picture)
     end
 
     def user_edit_params
-    	params.require(:user).permit(:name, :email, :bio)
+    	params.require(:user).permit(:name, :email, :bio, :profile_image, :picture)
     end
 
     # Confirms a logged-in user.
