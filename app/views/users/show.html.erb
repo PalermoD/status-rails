@@ -16,10 +16,13 @@
       <%= render 'shared/stats' %>
     </section>
 
-    <section>
-        <h1>Bio</h1>
-        <p><%= @user.bio %></p>
-    </section>
+    <% if  @user.bio %>
+        <section class="bio">
+            <h1>Bio</h1>
+            <p><%= @user.bio %></p>
+        </section>
+    <% else %>
+  	<% end %>
 
     <section class="micropost_form">
         <% if current_user?(@user) %>

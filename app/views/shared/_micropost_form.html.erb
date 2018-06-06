@@ -1,5 +1,5 @@
-<%= form_for Micropost.new do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= form_for(@micropost) do |f| %>
+  <%= render 'shared/post_errors', object: f.object %>
   <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>

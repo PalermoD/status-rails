@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
 
     def show
+        @micropost  = current_user.microposts.build
         @user = User.find(params[:id])
         @microposts = @user.microposts.order(created_at: :desc).paginate(page: params[:page])
     end
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
-            flash[:success] = "Welcome to the Sample App!"
+            flash[:success] = "Welcome to Status"
             redirect_to @user
         else
             render 'new'
