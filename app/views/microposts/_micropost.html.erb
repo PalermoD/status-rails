@@ -2,10 +2,17 @@
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <div>
+      <% if micropost.picture? %>
       <span class="content">
-          <%= micropost.content %>
-        <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
+
+            <%= micropost.content %>
+            <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
       </span>
+      <% else %>
+        <span class="content-text col-md-10 col-xs-10">
+          <%= micropost.content %>
+        </span>
+      <% end %>
 
 
 
