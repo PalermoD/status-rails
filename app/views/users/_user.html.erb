@@ -1,8 +1,31 @@
 <li>
   <%= gravatar_for user, size: 50 %>
   <%= link_to user.name, user %>
+  <section class="stats">
+      <div class="stats">
+        <a href="<%= following_user_path(user) %>">
+          <strong id="following" class="stat">
+            <%= user.following.count %>
+          </strong>
+          following
+        </a>
+        <a href="<%= followers_user_path(user) %>">
+          <strong id="followers" class="stat">
+            <%= user.followers.count %>
+          </strong>
+          followers
+        </a>
+        <a href="<%= followers_user_path(user) %>">
+          <strong id="followers" class="stat">
+            <%= user.followers.count + user.microposts.count%>
+          </strong>
+          Status Points
+        </a>
+      </div>
+
+  </section>
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
+     <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
 </li>
