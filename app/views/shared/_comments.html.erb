@@ -1,0 +1,26 @@
+<% @micropost.comments.each do |comment| %>
+     <% if comment.user %>
+     <div class="location" style="margin-bottom:20px;">
+
+     	<div class='row post_user_name'>
+     		<h2 style='float:left' >
+     			<%= link_to gravatar_for(comment.user), comment.user, class: 'user_post_name' %>
+     			<%= comment.user.name %>
+     		</h2>
+     	</div>
+
+     	<div class='row'>
+     		<p ><%= comment.content %></p>
+     	</div>
+
+          <% if current_user?(comment.user) %>
+            <h2 > <%= link_to "delete comment", [comment.micropost, comment], method: :delete,
+               data: { confirm: "You sure?" }, class: 'delete_post' %>
+            </h2>
+          <% end %>
+
+     </div>
+
+
+    <% end %>
+<% end %>

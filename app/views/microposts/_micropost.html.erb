@@ -54,6 +54,7 @@
         </div>
 
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    <a><%= micropost.comments.count %></a><%= link_to ' comments', micropost, class: 'user_post_name' %>
     <% if current_user?(micropost.user) %>
       <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>

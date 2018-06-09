@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :microposts do
+      resources :comments
     member do
       get "like", to: "microposts#upvote"
       get "dislike", to: "microposts#downvote"
