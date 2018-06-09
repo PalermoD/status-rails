@@ -11,7 +11,7 @@
 
 
       <div class="gravatar_edit">
-          <%= image_tag @user.picture.url if @user.picture? %>
+          <%= image_tag @user.picture.url, class: "gravatar" if @user.picture? %>
           <span class="picture">
               <%= f.file_field :picture %>
           </span>

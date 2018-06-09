@@ -1,6 +1,15 @@
 <li>
+    <% if user.picture? %>
+    <%= image_tag user.picture.url, class: "gravatar" if user.picture? %>
+    <%= link_to user.name, user %>
+    <% else %>
+
   <%= gravatar_for user, size: 50 %>
   <%= link_to user.name, user %>
+  <% end%>
+
+
+
   <section class="stats">
       <div class="stats">
         <a href="<%= following_user_path(user) %>">
