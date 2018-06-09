@@ -1,26 +1,36 @@
+
 <% @micropost.comments.each do |comment| %>
-     <% if comment.user %>
-     <div class="location" style="margin-bottom:20px;">
+<li id="micropost-<%= @micropost.id %>">
+    <% if comment.user %>
 
-     	<div class='row post_user_name'>
-     		<h2 style='float:left' >
-     			<%= link_to gravatar_for(comment.user), comment.user, class: 'user_post_name' %>
-     			<%= comment.user.name %>
-     		</h2>
-     	</div>
-
-     	<div class='row'>
-     		<p ><%= comment.content %></p>
-     	</div>
-
-          <% if current_user?(comment.user) %>
-            <h2 > <%= link_to "delete comment", [comment.micropost, comment], method: :delete,
-               data: { confirm: "You sure?" }, class: 'delete_post' %>
-            </h2>
-          <% end %>
-
-     </div>
-
-
+    <% if @micropost.user.picture? %>
+    <%= link_to @micropost.user do %>
+    <%= image_tag @micropost.user.picture.url, class: "gravatar" if @micropost.user.picture? %>
+    <%end%>
+    <% else %>
+    <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
     <% end %>
+
+     <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
+
+     <span class="content">
+
+           <%= comment.content %>
+
+     </span>
+
+      <span class="timestamp">
+          <% if current_user?(comment.user) %>
+            <%= link_to "delete", [comment.micropost, comment], method: :delete,
+                data: { confirm: "You sure?" }, class: 'delete_post' %>
+
+           <% end %>
+
+      </span>
+      <% end %>
+
+
+
+</li>
+
 <% end %>

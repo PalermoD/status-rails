@@ -1,6 +1,7 @@
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
+
+
 <div class="post col-md-12"style="margin-top:20px">
+    <aside class="col-md-4">
 
 
 
@@ -8,39 +9,44 @@
 
 
 
-    <% if @micropost.user.picture? %>
-    <%= link_to @micropost.user do %>
-    <%= image_tag @micropost.user.picture.url, class: "gravatar" if @micropost.user.picture? %>
-    <%= link_to @micropost.user.name, @micropost.user, class: 'user_post_name' %>
-    <%end%>
-    <% else %>
-    <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
-    <%= link_to @micropost.user.name, @micropost.user, class: 'user_post_name' %>
-    <% end %>
-
-	<p class="location">
-		<%= @micropost.content %>
-
-	</p>
 
 
 
 
 
-	<h1><%= image_tag @micropost.picture.url, :class => 'img-responsive img-post' if @micropost.picture? %></h1>
+
+    <div>
+
+
+        <% if @micropost.picture? %>
+        <span class="content">
+
+
+              <%= @micropost.content %>
+              <%= image_tag(@micropost.picture.url, class:"img-responsive") if @micropost.picture? %>
+        </span>
+        <% else %>
+          <span class="content-text col-md-10 col-xs-9">
+
+            <%= @micropost.content %>
+          </span>
+        <% end %>
+    </div>
+
 
     <span class="timestamp">
 
+
         <div class="row vote-count bind-<%= @micropost.id %>">
 
-              <h4 class="caret-square-up col-md-3 col-xs-5 upvote">
+              <h4 class="caret-square-up col-md-5 col-xs-5 upvote">
                   <%= link_to like_micropost_path(@micropost), remote: true, method: :get, class: 'vpos' do %>
                    upvote
                    <span class="vcount-<%= @micropost.id %>"><%= @micropost.get_upvotes.size %></span>
                   <% end %>
               </h4>
 
-              <h4 class="caret-square-down col-md-3 col-xs-5 downvote">
+              <h4 class="caret-square-down col-md-5 col-xs-5 downvote">
                   <%= link_to dislike_micropost_path(@micropost), remote: true, method: :get, class: 'npos' do%>
                   downvote
                   <span class="ncount-<%= @micropost.id %>"><%= @micropost.get_downvotes.size %></span>
@@ -50,7 +56,7 @@
           </div>
 
       Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
-      <a><%= @micropost.comments.count %></a><%= link_to ' comments', @micropost, class: 'user_post_name' %>
+
       <% if current_user?(@micropost.user) %>
         <%= link_to "delete", @micropost, method: :delete,
                                          data: { confirm: "You sure?" } %>
@@ -61,13 +67,18 @@
 
 
     <%= render 'shared/comments_form' %>
-    <%= render 'shared/comments' %>
 
 
 
+</aside>
 
+
+
+<div class="col-md-8 newsfeed">
+  <h3>comments</h3>
+  <ol class="microposts">
+   <%= render 'shared/comments' %>
+  </ol>
 </div>
-</div>
-
 
 </div>
