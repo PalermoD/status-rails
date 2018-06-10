@@ -3,16 +3,16 @@
 <li id="micropost-<%= @micropost.id %>">
     <% if comment.user %>
 
-    <% if @micropost.user.picture? %>
+    <% if current_user.picture? %>
 
-    <%= link_to @micropost.user do %>
-    <div class="image-cropper"><%= image_tag @micropost.user.picture.url, class: "gravatar-feed" if @micropost.user.picture? %></div>
+    <%= link_to current_user do %>
+    <div class="image-cropper"><%= image_tag current_user.picture.url, class: "gravatar-feed" if current_user.picture? %></div>
     <%end%>
     <% else %>
-    <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+    <%= link_to gravatar_for(current_user, size: 50), current_user %>
     <% end %>
 
-     <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
+     <span class="user"><%= link_to current_user.name, current_user %></span>
 
      <span class="content">
 
