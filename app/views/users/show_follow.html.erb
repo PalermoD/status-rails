@@ -2,10 +2,15 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
+        <% if @user.picture? %>
+            <%= image_tag @user.picture.url, class: "gravatar-profile" if @user.picture? %>
+            <%= @user.name %>
+        <%else%>
+            <%= gravatar_for @user %>
+            <%= @user.name %>
+        <%end%>
       <span><%= link_to "view my profile", @user %></span>
-      
+
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
