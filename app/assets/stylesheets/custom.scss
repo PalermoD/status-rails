@@ -148,7 +148,7 @@ aside {
     }
 
     img {
-        border-radius: 50px;
+        //border-radius: 50px;
     }
     h1 {
       font-size: 1.4em;
@@ -161,17 +161,44 @@ aside {
 }
 
 .gravatar {
-  float: left;
-  margin-right: 10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  // float: left;
+  // margin-right: 10px;
+  height: 100%;
+  width: auto;
+}
+
+.gravatar-feed {
+  // float: left;
+  // margin-right: 10px;
+  height: 100%;
+  width: auto;
+}
+
+.gravatar-profile {
+  // float: left;
+  // margin-right: 10px;
+  height: 100%;
+  width: 100%;
+  border-radius: none;
 }
 
 .gravatar_edit {
   margin-top: 15px;
 
 
+}
+
+.image-cropper {
+    display: inline;
+    margin: 0 auto;
+
+    width: 50px;
+    height: 50px;
+    float: left;
+
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 

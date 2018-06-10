@@ -1,10 +1,10 @@
 <li>
     <% if user.picture? %>
-    <%= image_tag user.picture.url, class: "gravatar" if user.picture? %>
+    <div class="image-cropper"><%= image_tag user.picture.url, class: "gravatar" if user.picture? %></div>
     <%= link_to user.name, user %>
     <% else %>
 
-  <%= gravatar_for user, size: 50 %>
+  <div class="image-cropper"><%= gravatar_for user%></div>
   <%= link_to user.name, user %>
   <% end%>
 

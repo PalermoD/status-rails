@@ -4,7 +4,7 @@
     <section>
         <h1>
             <% if @user.picture? %>
-                <%= image_tag @user.picture.url, class: "gravatar" if @user.picture? %>
+                <%= image_tag @user.picture.url, class: "gravatar-profile" if @user.picture? %>
                 <%= @user.name %>
             <%else%>
                 <%= gravatar_for @user %>

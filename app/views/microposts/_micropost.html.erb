@@ -2,8 +2,11 @@
 
 
   <% if micropost.user.picture? %>
+
   <%= link_to micropost.user do %>
-  <%= image_tag micropost.user.picture.url, class: "gravatar" if micropost.user.picture? %>
+  <div class="image-cropper">
+  <%= image_tag micropost.user.picture.url, class: "gravatar-feed" if micropost.user.picture? %>
+  </div>
   <%end%>
   <% else %>
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
