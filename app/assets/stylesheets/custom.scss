@@ -147,8 +147,10 @@ aside {
       }
     }
 
-    img {
-        //border-radius: 50px;
+    .gravatar {
+        float: left;
+        margin-right: 10px;
+        border-radius: 50px;
     }
     h1 {
       font-size: 1.4em;
