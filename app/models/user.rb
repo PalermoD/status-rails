@@ -1,5 +1,6 @@
 class User < ApplicationRecord
       acts_as_voter
+      default_scope -> { order(created_at: :desc) }
       has_many :microposts, dependent: :destroy
       has_many :comments, dependent: :destroy
       has_many :active_relationships, class_name:  "Relationship",
