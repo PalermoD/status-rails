@@ -8,6 +8,15 @@ class PictureUploader < CarrierWave::Uploader::Base
     storage :file
   end
 
+  def auto_orient
+    manipulate! do |img|
+      img.auto_orient
+      img
+    end
+  end
+
+  process :auto_orient
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
