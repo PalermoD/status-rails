@@ -25,6 +25,8 @@ gem 'rack-timeout'
 
 gem "font-awesome-rails"
 
+gem "rinku"
+
 #gem 'derailed', group: :development
 
 
