@@ -502,3 +502,68 @@ a {
 li {
     text-decoration: none !important;
 }
+
+.photo-upload {
+    margin-bottom: 5px;
+}
+
+
+// .fileinput-button {
+//   position: relative;
+//   overflow: hidden;
+//   float: left;
+//   margin-right: 4px;
+//   width: 110px;
+//   height: 32px;
+//   input{
+//     opacity: 0;
+//     filter: alpha(opacity=0);
+//     transform: translate(-300px, 0) scale(4);
+//     direction: ltr;
+//     cursor: pointer;
+//   }
+// }
+//
+//
+// #hide input[type=file] {
+// display:none;
+// margin:10px;
+// }
+// #hide input[type=file] + label {
+// display:inline-block;
+// margin:20px;
+// padding: 4px 32px;
+// background-color: #FFFFFF;
+// border:solid 1px #666F77;
+// border-radius: 6px;
+// color:#666F77;
+// }
+// #hide input[type=file]:active + label {
+// background-image: none;
+// background-color:#2D6C7A;
+// color:#FFFFFF;
+// }
+//
+// #upload_button {
+//   display: inline-block;
+// }
+// #upload_button input[type=file] {
+//   display:none;
+// }
+
+// .fileUpload {
+//     position: relative;
+//     overflow: hidden;
+//     margin: 10px;
+// }
+// .fileUpload input.upload {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     margin: 0;
+//     padding: 0;
+//     font-size: 20px;
+//     cursor: pointer;
+//     opacity: 0;
+//     filter: alpha(opacity=0);
+// }
