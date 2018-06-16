@@ -12,7 +12,7 @@
 
 
       <div class="gravatar_edit">
-          <%= image_tag @user.picture.url, class: "gravatar img-responsive" if @user.picture? %>
+          <%= image_tag @user.picture.url, class: "img-responsive" if @user.picture? %>
           <span class="picture">
               <%= f.file_field :picture %>
           </span>
