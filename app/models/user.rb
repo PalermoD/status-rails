@@ -61,7 +61,7 @@ class User < ApplicationRecord
 
       def global
           #microposts
-          Micropost.order(:cached_votes_score => :desc)
+          Micropost.order(:cached_votes_score => :desc).order(created_at: :desc)
       end
 
       def newposts
