@@ -1,5 +1,5 @@
 class PictureUploader < CarrierWave::Uploader::Base
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
   include CarrierWaveDirect
 
   # process resize_to_limit: [400, 400]
@@ -17,7 +17,7 @@ class PictureUploader < CarrierWave::Uploader::Base
     end
   end
   #
-  # process :auto_orient
+  process :auto_orient
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
