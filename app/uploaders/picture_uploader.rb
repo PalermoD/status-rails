@@ -9,13 +9,13 @@ class PictureUploader < CarrierWave::Uploader::Base
   # else
   #   storage :file
   # end
-  # 
-  # def auto_orient
-  #   manipulate! do |img|
-  #     img.auto_orient
-  #     img
-  #   end
-  # end
+  #
+  def auto_orient
+    manipulate! do |img|
+      img.auto_orient
+      img
+    end
+  end
   #
   # process :auto_orient
 
