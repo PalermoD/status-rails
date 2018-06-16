@@ -27,6 +27,8 @@ gem "font-awesome-rails"
 
 gem "rinku"
 
+gem 'carrierwave_direct'
+
 #gem 'derailed', group: :development
 
 
