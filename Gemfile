@@ -29,6 +29,10 @@ gem "rinku"
 
 gem 'carrierwave_direct'
 
+gem 'bootstrap-wysihtml5-rails'
+
+gem 'wysihtml5-rails'
+
 #gem 'derailed', group: :development
 
 
