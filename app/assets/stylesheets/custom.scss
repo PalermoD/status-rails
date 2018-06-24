@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
 
 /* mixins, variables, etc. */
 
@@ -571,3 +572,10 @@ li {
 //     opacity: 0;
 //     filter: alpha(opacity=0);
 // }
+
+
+.blog-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}

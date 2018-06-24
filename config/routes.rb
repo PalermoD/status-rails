@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  get  '/create',    to: 'static_pages#create'
+
   resources :users do
     member do
       get :following, :followers
@@ -27,6 +29,9 @@ Rails.application.routes.draw do
       get "dislike", to: "microposts#downvote"
     end
   end
+
+  resources :articles
+
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

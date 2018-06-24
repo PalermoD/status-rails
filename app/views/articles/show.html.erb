@@ -1,0 +1,21 @@
+<div>
+    <h1><%= @article.location %></h1>
+
+    <% if @article.picture? %>
+
+
+    <span class="content">
+
+
+
+        <%= image_tag(@article.picture.url, class:"img-responsive") if @article.picture? %>
+
+    </span>
+    <%= raw(@article.content) %>
+    <% else %>
+    <span class="content-text col-md-10 col-xs-9">
+
+        <%= raw(@article.content) %>
+    </span>
+    <% end %>
+</div>

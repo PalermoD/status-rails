@@ -7,6 +7,7 @@ class User < ApplicationRecord
       default_scope -> { order(created_at: :desc) }
       has_many :microposts, dependent: :destroy
       has_many :comments, dependent: :destroy
+      has_many :articles, dependent: :destroy
       has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -66,16 +67,26 @@ class User < ApplicationRecord
                           WHERE  follower_id = :user_id"
           Micropost.where("user_id IN (#{following_ids})
                           OR user_id = :user_id", user_id: id)
+
       end
 
       def global
           #microposts
           Micropost.order(:cached_votes_score => :desc).order(created_at: :desc)
+
+      end
+
+      def articles
+          #microposts
+          Article.all
+
       end
 
       def newposts
           #microposts
           Micropost.all
+
+
       end
 
       # Follows a user.

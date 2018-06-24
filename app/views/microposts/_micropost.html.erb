@@ -1,50 +1,56 @@
 <li id="micropost-<%= micropost.id %>">
 
 
-  <% if micropost.user.picture? %>
+    <% if micropost.user.picture? %>
 
-  <%= link_to micropost.user do %>
-  <div class="image-cropper">
-  <%= image_tag micropost.user.picture.url, class: "gravatar-feed" if micropost.user.picture? %>
-  </div>
-  <%end%>
-  <% else %>
-  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-  <% end %>
+    <%= link_to micropost.user do %>
+    <div class="image-cropper">
+        <%= image_tag micropost.user.picture.url, class: "gravatar-feed" if micropost.user.picture? %>
+    </div>
+    <%end%>
+    <% else %>
+    <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+    <% end %>
 
 
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <div>
-      <% if micropost.picture? %>
-      <span class="content">
+    <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+    <div>
+        <% if micropost.picture? && !micropost.title? %>
+            <span class="content">
 
-            <%= micropost.content %>
-            <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
-      </span>
-      <% else %>
+                <%= micropost.content %>
+                <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
+            </span>
+        <% elsif micropost.title? && micropost.picture? %>
         <span class="content-text col-md-10 col-xs-9">
-          <%= add_links(micropost.content) %>
+
+            <%= link_to micropost.title, micropost, class: 'user_post_name' %>
+            <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
+
         </span>
-
-      <% end %>
-
-
-
-  </div>
-
+        <% else %>
+            <span class="content-text col-md-10 col-xs-9">
+               <%= add_links(micropost.content) %>
+            </span>
+        <% end %>
 
 
 
+    </div>
 
 
-  <span class="timestamp">
 
-      <div class="row vote-count bind-<%= micropost.id %>">
+
+
+
+    <span class="timestamp">
+
+        <div class="row vote-count bind-<%= micropost.id %>">
 
             <h4 class="caret-square-up col-md-3 col-xs-5 upvote">
                 <%= link_to like_micropost_path(micropost), remote: true, method: :get, class: 'vpos' do %>
-                 upvote
-                 <span class="vcount-<%= micropost.id %>"><%= micropost.get_upvotes.size %></span>
+                upvote
+                <span class="vcount-<%= micropost.id %>"><%= micropost.get_upvotes.size %></span>
                 <% end %>
             </h4>
 
@@ -57,11 +63,11 @@
             </h4>
         </div>
 
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-    <a><%= micropost.comments.count %></a><%= link_to ' comments', micropost, class: 'user_post_name' %>
-    <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
+        Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+        <a><%= micropost.comments.count %></a><%= link_to ' comments', micropost, class: 'user_post_name' %>
+        <% if current_user?(micropost.user) %>
+        <%= link_to "delete", micropost, method: :delete,
+        data: { confirm: "You sure?" } %>
+        <% end %>
+    </span>
 </li>

@@ -1,4 +1,52 @@
+<% if @micropost.title? %>
+<div class="col-md-12">
+    <h1><%= @micropost.title %></h1>
+    <%= image_tag(@micropost.picture.url, class:"img-responsive") if @micropost.picture? %>
+    <h3>By: <%= @micropost.user.name %></h3>
+    <p><%= raw(@micropost.content) %></p>
+    <span class="timestamp">
 
+
+        <div class="row vote-count bind-<%= @micropost.id %>">
+
+              <h4 class="caret-square-up col-md-3 col-xs-5 upvote">
+                  <%= link_to like_micropost_path(@micropost), remote: true, method: :get, class: 'vpos' do %>
+                   upvote
+                   <span class="vcount-<%= @micropost.id %>"><%= @micropost.get_upvotes.size %></span>
+                  <% end %>
+              </h4>
+
+              <h4 class="caret-square-down col-md-3 col-xs-5 downvote">
+                  <%= link_to dislike_micropost_path(@micropost), remote: true, method: :get, class: 'npos' do%>
+                  downvote
+                  <span class="ncount-<%= @micropost.id %>"><%= @micropost.get_downvotes.size %></span>
+
+                  <% end %>
+              </h4>
+          </div>
+
+      Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+
+      <% if current_user?(@micropost.user) %>
+        <%= link_to "delete", @micropost, method: :delete,
+                                         data: { confirm: "You sure?" } %>
+      <% end %>
+   </span>
+   <% if logged_in? %>
+
+    <%= render 'shared/comments_form' %>
+
+    <div class="col-md-12 newsfeed">
+      <h3>comments</h3>
+      <ol class="microposts">
+       <%= render 'shared/comments' %>
+      </ol>
+    </div>
+    <% end %>
+
+</div>
+
+<% else %>
 
 <div class="post col-md-12"style="margin-top:20px">
     <aside class="col-md-4">
@@ -82,3 +130,6 @@
 </div>
 
 </div>
+
+
+<% end %>
