@@ -1,8 +1,8 @@
-<head>
+<% content_for :head do %>
     <meta property="og:title" content="<%= @micropost.title %>" />
     <meta property="og:description" content="<%= @micropost.content %>" />
     <meta property="og:image" content="<%= @micropost.picture.url %>" />
-</head>
+<% end %>
 
 <% if @micropost.title? %>
 <div class="col-md-12">
