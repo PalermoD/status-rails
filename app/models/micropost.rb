@@ -6,7 +6,7 @@ class Micropost < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :user_id, presence: true
-  validates :content,  length: { maximum: 140 }
+
   validate  :picture_size
 
   #default_scope -> {  order(:cached_votes_score => :desc)}

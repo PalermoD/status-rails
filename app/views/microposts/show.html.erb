@@ -1,3 +1,9 @@
+<head>
+    <meta property="og:title" content="<%= @micropost.title %>" />
+    <meta property="og:description" content="<%= @micropost.content %>" />
+    <meta property="og:image" content="<%= @micropost.picture.url %>" />
+</head>
+
 <% if @micropost.title? %>
 <div class="col-md-12">
     <h1><%= @micropost.title %></h1>

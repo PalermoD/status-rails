@@ -579,3 +579,40 @@ li {
     margin-bottom: 10px;
     font-size: 12px;
 }
+
+.blog-post {
+    background-color: black;
+    padding: 15px;
+
+    border-radius: 5px;
+    text-align: center;
+}
+
+.wysihtml5 {
+    height: 350px !important;
+}
+
+.white {
+    margin-top: 5px;
+    color: white;
+}
+
+.content-text {
+    .blog-feed-content {
+        color: white !important;
+        text-align: left !important;
+        font-size: 12px;
+    }
+
+    h3 {
+        font-size: 14px;
+        color: white !important;
+        text-align: left;
+    }
+
+    p {
+        font-size: 13px;
+        color: white !important;
+        text-align: left;
+    }
+}
