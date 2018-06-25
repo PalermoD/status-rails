@@ -586,6 +586,10 @@ li {
 
     border-radius: 5px;
     text-align: center;
+
+    a {
+
+    }
 }
 
 .wysihtml5 {
@@ -604,10 +608,19 @@ li {
         font-size: 12px;
     }
 
+
+
     h3 {
         font-size: 14px;
         color: white !important;
         text-align: left;
+    }
+
+    h1 {
+        font-size: 14px;
+        color: white !important;
+        text-align: left;
+        margin: 0px !important;
     }
 
     p {
