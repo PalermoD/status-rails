@@ -2,7 +2,7 @@ class User < ApplicationRecord
       acts_as_voter
       attr_accessor :remember_token, :reset_token
       before_save   :downcase_email
-      before_create :create_activation_digest
+      # before_create :create_activation_digest
 
       default_scope -> { order(created_at: :desc) }
       has_many :microposts, dependent: :destroy
