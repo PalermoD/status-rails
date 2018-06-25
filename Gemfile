@@ -33,6 +33,8 @@ gem 'bootstrap-wysihtml5-rails'
 
 gem 'wysihtml5-rails'
 
+gem 'acts-as-taggable-on', '~> 6.0'
+
 #gem 'derailed', group: :development
 
 

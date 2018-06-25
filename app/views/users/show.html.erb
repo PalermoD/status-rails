@@ -13,7 +13,7 @@
        </h1>
       <% if current_user?(@user) %>
           <span><%= link_to "Edit Profile", edit_user_path(current_user) %></span>
-          <%= link_to "Write Blog", create_path, class: "btn btn-lg btn-primary" %>
+          <%= link_to "Write Blog", create_path, class: "btn col-md-12 btn-lg btn-primary" %>
       <% end %>
 
     </section>
