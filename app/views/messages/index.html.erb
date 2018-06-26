@@ -1,8 +1,31 @@
-<% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
+
+
 
 <% if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id %>
+
+<div class="post"style="margin-top:20px">
+    <aside class="col-md-5">
+        <h3>Send Message</h3>
+
+  <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+      <div class="field">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+      <div>
+        <%= f.submit "Add Reply", class: "btn btn-primary" %>
+      </div>
+   <% end %>
+</aside>
+<div>
+
+    <div class="col-md-7 newsfeed">
+
+    <% if @over_ten %>
+       <%= link_to 'Show Previous', '?m=all' %>
+    <% end %>
+
+
 <div class="panel-body" id="messages">
     <div class="ui segment">
       <% @messages.each do |message| %>
@@ -23,19 +46,9 @@
       <% end %>
     </div>
 </div>
-
-<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div>
-    <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
-  </div>
+</div>
 
 
-
-<% end %>
 
 <% else %>
 
