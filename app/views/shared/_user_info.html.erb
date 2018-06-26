@@ -14,5 +14,6 @@
 <span><%= link_to "view my profile", current_user %></span>
 
 <span><%= pluralize(current_user.microposts.count, "post") %></span>
-
-<%= link_to "Write Blog", create_path, class: "col-md-12 btn btn-lg btn-primary blog-btn" %>
+<section>
+    <%= link_to "Write Blog", create_path, class: "col-md-12 btn btn-lg btn-primary blog-btn" %>
+</section>

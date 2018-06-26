@@ -13,17 +13,39 @@
        </h1>
       <% if current_user?(@user) %>
           <span><%= link_to "Edit Profile", edit_user_path(current_user) %></span>
-          <%= link_to "Write Blog", create_path, class: "btn col-md-12 btn-lg btn-primary" %>
+          <%= link_to "Write Blog", create_path, class: "btn col-md-12 col-xs-12 btn-lg btn-primary blog-btn" %>
+
+
+
       <% end %>
 
+
     </section>
+
+    <section class="messeges-btn">
+
+        <% if current_user?(@user) %>
+
+
+
+        <% else %>
+
+            <%= link_to "Messege Me", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn col-md-12 col-xs-12 btn-lg btn-primary blog-btn" %>
+            <%= render 'follow_form' if logged_in? %>
+
+
+        <% end %>
+    </section>
+
+
+
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
 
-    <% if  @user.bio %>
+    <% if  @user.bio? %>
         <section class="bio">
-            <h1>Bio</h1>
+            <h3>Bio</h3>
             <p><%= @user.bio %></p>
         </section>
     <% else %>
@@ -45,7 +67,7 @@
 
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
+
     <% if @user.microposts.any? %>
 
       <ol class="microposts">

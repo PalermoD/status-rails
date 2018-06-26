@@ -2,23 +2,26 @@
    <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= user.name %></strong> <%= message.message_time %></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
+<% if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id %>
+<div class="panel-body" id="messages">
+    <div class="ui segment">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <div class="item">
+            <div class="content">
+              <div class="header"><strong><%= user.name %></strong>  <%= time_ago_in_words(message.created_at) %> </div>
+              <div class="list">
+                <div class="item">
+                  <i class="right triangle icon"></i>
+                  <%= message.body %>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+        <% end %>
+      <% end %>
+    </div>
 </div>
 
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
@@ -29,5 +32,13 @@
   <div>
     <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
   </div>
+
+
+
+<% end %>
+
+<% else %>
+
+<div>404 ERROR</div>
 
 <% end %>
