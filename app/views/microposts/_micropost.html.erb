@@ -30,8 +30,8 @@
             <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
             <p class="white">By: <%= link_to micropost.user.name, micropost, class: 'user_post_name' %></p>
             <p class="blog-feed-content"><%= truncate(micropost.content, :length => 200, :omission => "" , :escape => false, class: 'blog-feed-content') %>
-             <%= link_to ' . . . read more', micropost, class: 'user_post_name' %>
-            </p>
+
+            </p><%= link_to ' . . . read more', micropost, class: 'user_post_name' %>
 
 
         </span>
