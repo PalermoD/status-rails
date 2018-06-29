@@ -70,14 +70,14 @@
 
             <h4 class="caret-square-up col-md-3 col-xs-5 upvote">
                 <%= link_to like_micropost_path(micropost), remote: true, method: :get, class: 'vpos' do %>
-                upvote
+                <i class="fa fa-thumbs-up"></i>
                 <span class="vcount-<%= micropost.id %>"><%= micropost.get_upvotes.size %></span>
                 <% end %>
             </h4>
 
             <h4 class="caret-square-down col-md-3 col-xs-5 downvote">
                 <%= link_to dislike_micropost_path(micropost), remote: true, method: :get, class: 'npos' do%>
-                downvote
+                <i class="fa fa-thumbs-down"></i>
                 <span class="ncount-<%= micropost.id %>"><%= micropost.get_downvotes.size %></span>
 
                 <% end %>
