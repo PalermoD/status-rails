@@ -3,9 +3,9 @@
 
 <% if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id %>
 
-<div class="post"style="margin-top:20px">
+<section class="post"style="margin-top:20px">
     <aside class="col-md-5">
-        <h3>Send Message</h3>
+        <h3>Send Message to <%=@conversation.recipient.name%></h3>
 
   <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
       <div class="field">
@@ -17,18 +17,23 @@
       </div>
    <% end %>
 </aside>
-<div>
+<section>
 
 
-<div class="col-md-7 newsfeed">
+
+
+<div class="col-md-12 newsfeed">
+
+
 
     <% if @over_ten %>
        <%= link_to 'Show Previous', '?m=all' %>
     <% end %>
 
-
-<ol class="microposts" id="messages">
-    <li class="ui segment">
+<% if @messages.any? %>
+<ol class="microposts" >
+    <%= will_paginate @messages %>
+    <li id="micropost-123" >
       <% @messages.each do |message| %>
         <% if message.body %>
           <% user = User.find(message.user_id) %>
@@ -47,24 +52,36 @@
 
 
                   <span class="user">
-                      <%= user.name %>
+                      <%=link_to user.name, user %>
                   </span>
 
-                  <span class="content">
-                      <%= message.body %>
-                  </span>
+                  <div>
+
+                      <span class="content">
+                          <%= message.body %>
+                      </span>
+                  </div>
 
                   <span class="timestamp">
                       <%= time_ago_in_words(message.created_at) %>
+                      <%= link_to "view profile", user  %>
                   </span>
+                  <hr/>
 
 
 
         <% end %>
       <% end %>
+
   </li>
+
+
 </ol>
+<%= will_paginate @messages %>
+<%end%>
+
 </div>
+
 
 
 
