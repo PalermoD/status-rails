@@ -16,4 +16,14 @@
     <%= render 'shared/newposts' %>
   </div>
 </div>
+<% else %>
+<body class="home">
+    <div class="center">
+     <%= image_tag("logo2.png", class: "img-responsive home-logo") %>
+      <h5>A NEW SOCIAL NETWORK</h5>
+
+
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+</body>
 <% end %>
