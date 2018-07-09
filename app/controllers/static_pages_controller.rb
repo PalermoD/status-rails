@@ -3,7 +3,6 @@ class StaticPagesController < ApplicationController
       if logged_in?
        @micropost  = current_user.microposts.build
        @article = current_user.articles.paginate(page: params[:page])
-
        @global_items = current_user.global.paginate(page: params[:page])
      end
   end
