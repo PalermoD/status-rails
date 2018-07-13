@@ -20,4 +20,9 @@ def account_activation(user)
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+
+  def notification(user)
+      @user = user
+      mail to: user.email, subject: "Check out what's new on Status"
+  end
 end

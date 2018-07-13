@@ -650,3 +650,12 @@ li {
     margin-right: auto;
     width: 250px;
 }
+
+.message-ul {
+    margin: 20px;
+    text-decoration: none !important;
+
+    li {
+        text-decoration: none !important;
+    }
+}
