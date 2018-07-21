@@ -7,7 +7,7 @@
 <% if @micropost.title? %>
 <div class="col-md-12">
     <h1><%= @micropost.title %></h1>
-    <%= image_tag(@micropost.picture.url, class:"img-responsive") if @micropost.picture? %>
+    <%= image_tag(@micropost.picture.url, class:"img-responsive center-blog-img") if @micropost.picture? %>
     <h3>By: <%= @micropost.user.name %></h3>
     <p><%= raw(@micropost.content) %></p>
     <span class="timestamp">
