@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
   root 'static_pages#home'
-  get  '/following',    to: 'static_pages#global'
+  get  '/global',    to: 'static_pages#global'
   get  '/new',    to: 'static_pages#newposts'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'

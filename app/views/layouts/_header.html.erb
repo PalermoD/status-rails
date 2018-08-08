@@ -22,13 +22,13 @@
          <% if logged_in? %>
          <li>
              <%= link_to root_path do %>
-                 <i class="fa fa-globe" aria-hidden="true"></i> Global
+                 <i class="fa fa-user-circle-o" aria-hidden="true"></i> Following
              <% end %>
          </li>
 
          <li>
-             <%= link_to following_path do%>
-                 <i class="fa fa-user-circle-o" aria-hidden="true"></i> Following
+             <%= link_to global_path do%>
+                 <i class="fa fa-globe" aria-hidden="true"></i> Global
              <%end%>
          </li>
          <li>
