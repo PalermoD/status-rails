@@ -17,6 +17,7 @@
      <span class="content">
 
            <%= comment.content %>
+           <%= image_tag(comment.picture.url, class:"img-responsive") if comment.picture? %>
 
      </span>
 

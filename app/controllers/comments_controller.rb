@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
             redirect_to request.referrer
         else
             flash[:alert] = "Check the comment form, something went wrong. ¯\_(ツ)_/¯"
-            render root_path
+            redirect_to request.referrer
         end
     end
 
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:content)
+        params.require(:comment).permit(:content, :picture)
     end
 
     def set_micropost
