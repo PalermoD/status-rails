@@ -1,12 +1,13 @@
 <%= form_for [@user, @micropost, @micropost.comments.new ] do |f| %>
 
-<span class="picture">
-    <%= f.label :Photo%>
-    <%= f.label :Upload%>
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-</span>
+
 
 <div class="field comment_field">
+    <span class="picture">
+
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+
     <%= f.text_area :content, placeholder: "Say something about this post . . ." %>
 </div>
 <%= f.submit "Comment", class: "btn btn-primary comment-btn" %>

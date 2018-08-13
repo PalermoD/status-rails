@@ -5,12 +5,17 @@
 <% end %>
 
 <% if @micropost.title? %>
-<div class="col-md-12">
+<div class="col-md-10 col-md-offset-1">
     <h1><%= @micropost.title %></h1>
     <%= image_tag(@micropost.picture.url, class:"img-responsive center-blog-img") if @micropost.picture? %>
-    <h3>By: <%= @micropost.user.name %></h3>
-    <p><%= raw(@micropost.content) %></p>
-    <span class="timestamp">
+
+    <div class="col-md-10 col-md-offset-1">
+        <h3>By: <%= @micropost.user.name %></h3>
+        <p><%= raw(@micropost.content) %></p>
+    </div>
+
+
+    <span class="timestamp col-md-10 col-md-offset-1 col-xs-12">
 
 
         <div class="row vote-count bind-<%= @micropost.id %>">
@@ -35,11 +40,13 @@
 
 
    </span>
+
    <% if logged_in? %>
 
-    <%= render 'shared/comments_form' %>
 
-    <div class="col-md-12 newsfeed">
+
+    <div class="col-md-10 col-md-offset-1 newsfeed">
+      <%= render 'shared/comments_form' %>
       <h3>comments</h3>
       <ol class="microposts">
        <%= render 'shared/comments' %>
