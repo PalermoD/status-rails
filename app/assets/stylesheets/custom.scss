@@ -538,7 +538,19 @@ li {
 //   }
 // }
 //
+// input[type="file"] {
+//     display: none;
+// }
 //
+//
+// .custom-file-upload {
+//     border: 1px solid #ccc;
+//     display: inline-block;
+//     padding: 6px 12px;
+//     cursor: pointer;
+// }
+
+
 // #hide input[type=file] {
 // display:none;
 // margin:10px;
@@ -557,7 +569,7 @@ li {
 // background-color:#2D6C7A;
 // color:#FFFFFF;
 // }
-//
+
 // #upload_button {
 //   display: inline-block;
 // }
@@ -665,3 +677,34 @@ li {
     margin-left: auto;
     margin-right: auto;
 }
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+// #hide input[type=file] {
+// display:none;
+// margin:10px;
+// }
+// #hide input[type=file] + label {
+// display:inline-block;
+// margin:20px;
+// padding: 4px 32px;
+// background-color: #FFFFFF;
+// border:solid 1px #666F77;
+// border-radius: 6px;
+// color:#666F77;
+// }
+// #hide input[type=file]:active + label {
+// background-image: none;
+// background-color:#2D6C7A;
+// color:#FFFFFF;
+// }

@@ -3,11 +3,21 @@
 
 
 
-  <span class="picture">
-    <%= f.label :Photo%>
-    <%= f.label :Upload%>
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
+  <!-- <span class="picture"> -->
+    <!-- <%= f.label :Photo%>
+    <%= f.label :Upload%> -->
+    <!-- <label for="file-upload" class="custom-file-upload">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        Custom Upload
+    </label> -->
+
+    <label class="custom-file-upload">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+            Custom Upload
+    </label>
+
+    <!-- <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %> -->
+  <!-- </span> -->
 
 
 
