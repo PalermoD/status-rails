@@ -11,21 +11,50 @@
         Custom Upload
     </label> -->
 
-    <label class="custom-file-upload">
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-            Custom Upload
-    </label>
+
 
     <!-- <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %> -->
   <!-- </span> -->
 
 
 
+
+
+
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new post..." %>
   </div>
+
+            <img id="img_prev"  />
+
+
+
+
+
+
+
+            <label class="custom-file-upload col-md-6 col-sm-6 col-xs-6">
+              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', :onchange => "readURL(this)" %>
+                  <i class="fa fa-camera" aria-hidden="true"></i> Upload Photo
+            </label>
+
+
+
+
+
+
+
+            <div class="custom-file-upload col-md-6 col-sm-6 col-xs-6">
+                <i class="fa fa-pencil-square" aria-hidden="true"></i> <%= link_to "Write Blog", create_path, class: "btn-primary"%>
+            </div>
+
+
+
+
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
+
+
 
 <script type="text/javascript">
 
@@ -41,8 +70,8 @@ function readURL(input) {
           reader.onload = function (e) {
             $('#img_prev')
               .attr('src', e.target.result)
-              .width(150)
-              .height(200);
+              .width('100%')
+
           };
 
           reader.readAsDataURL(input.files[0]);

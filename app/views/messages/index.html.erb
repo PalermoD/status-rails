@@ -7,7 +7,7 @@
     <aside class="col-md-5">
         <h3>Send Message</h3>
 
-  <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+    <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
       <div class="field">
         <%= f.text_area :body, class: "form-control" %>
       </div>
@@ -37,30 +37,23 @@
       <% @messages.each do |message| %>
         <% if message.body %>
           <% user = User.find(message.user_id) %>
-
-
-
-                      <% if user.picture? %>
-                            <%= link_to user do %>
-                            <div class="image-cropper">
-                                <%= image_tag user.picture.url, class: "gravatar-feed" if user.picture? %>
-                            </div>
-                            <%end%>
-                            <% else %>
-                                <%= link_to gravatar_for(user, size: 50), user %>
-                      <% end %>
-
-
-                  <span class="user">
-                      <%=link_to user.name, user %>
-                  </span>
-
-                  <div>
-
-                      <span class="content">
-                          <%= message.body %>
-                      </span>
-                  </div>
+                <% if user.picture? %>
+                    <%= link_to user do %>
+                    <div class="image-cropper">
+                        <%= image_tag user.picture.url, class: "gravatar-feed" if user.picture? %>
+                    </div>
+                    <%end%>
+                    <% else %>
+                        <%= link_to gravatar_for(user, size: 50), user %>
+                <% end %>
+                <span class="user">
+                    <%=link_to user.name, user %>
+                </span>
+                <div>
+                    <span class="content">
+                        <%= message.body %>
+                    </span>
+                </div>
 
                   <span class="timestamp">
                       <%= time_ago_in_words(message.created_at) %>

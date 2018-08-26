@@ -332,7 +332,7 @@ aside {
 }
 
 span.picture {
-  margin-top: 10px;
+  margin-top: 12px;
   input {
     border: 0;
   }
@@ -341,7 +341,7 @@ span.picture {
 
 .stats {
   overflow: auto;
-  margin-top: 0;
+  margin-top: 5px;
   padding: 0;
   a {
     float: left;
@@ -679,10 +679,24 @@ li {
 }
 
 .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
+    text-align:center;
+    padding: 10px;
+
+
+
+
+
+
     cursor: pointer;
+    color: white !important;
+    background: black;
+
+
+}
+
+[class*="col-"] {
+    background-clip: padding-box;
+    border: 1px solid transparent;
 }
 
 input[type="file"] {
