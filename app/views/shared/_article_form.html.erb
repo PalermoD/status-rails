@@ -3,8 +3,14 @@
   <%= f.label :title %>
   <%= f.text_field :title, class: 'form-control' %>
 
-    <%= f.label :image %><br>
-    <%= f.file_field :picture %>
+
+
+  <label class="custom-file-upload col-md-12 col-sm-12 col-xs-12">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', :onchange => "readURL(this)" %>
+        <i class="fa fa-camera" aria-hidden="true"></i> Upload Photo
+  </label>
+
+  <img id="img_prev"  />
 
   <p>
     <%= f.label :text %><br>
