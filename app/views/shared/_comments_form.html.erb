@@ -10,5 +10,49 @@
 
     <%= f.text_area :content, placeholder: "Say something about this post . . ." %>
 </div>
+
+<img id="img_prev"  />
+
+<label class="custom-file-upload col-md-6 col-sm-6 col-xs-6">
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', :onchange => "readURL(this)" %>
+      <i class="fa fa-camera" aria-hidden="true"></i> Upload Photo
+</label>
+
 <%= f.submit "Comment", class: "btn btn-primary comment-btn" %>
+
+
+
 <% end %>
+
+<script type="text/javascript">
+
+document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+
+function readURL(input) {
+    console.log('what up')
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#img_prev')
+              .attr('src', e.target.result)
+              .width('100%')
+
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+
+
+
+  $('#micropost_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 10) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
