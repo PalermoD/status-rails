@@ -662,11 +662,41 @@ li {
 .home-logo {
     margin-left: auto;
     margin-right: auto;
-    width: 450px;
+    // width: 450px;
+    // vertical-align: middle;
+    // padding: 10px 0;
+
+    text-align: center;
     margin-top: 210px;
 
 
 
+}
+
+@media only screen and (min-width: 1000px) {
+    .home-logo {
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-top: 250px;
+
+
+
+
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .home-logo {
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-top: 280px;
+
+
+
+
+    }
 }
 
 @media only screen and (max-width: 700px) {
