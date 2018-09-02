@@ -845,6 +845,21 @@ input[type="file"] {
         font-size: 30px;
     }
 
+    .bgimage {
+      // width:100%;
+      height:300px;
+      // background: url('https://wallpapercave.com/wp/wp2864012.gif');
+      background: url('https://cdn-images-1.medium.com/max/2000/1*q8HNVIql60d46VWjI5i2CQ.gif');
+
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-color: black;
+
+
+    }
+
     // .user-name-hero {
     //     color: white;
     //
