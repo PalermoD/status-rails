@@ -123,8 +123,11 @@ footer {
     h3 {
 
     }
-    margin-top: -22px;
-    margin-bottom: -32px;
+    margin-top: -20px;
+    // margin-bottom: -32px;
+    background: black;
+    color: white;
+    padding: 12px;
 }
 
 aside {
@@ -383,6 +386,17 @@ span.picture {
     color: #fff;
     background-color:black;
     border-color: black;
+
+    &:hover {
+        background-color: #c39a54 !important;
+        border-color: #c39a54;
+    }
+}
+
+.btn-gold {
+    color: #fff;
+    background-color:#c39a54;
+    border-color: white;
 
     &:hover {
         background-color: #c39a54 !important;
@@ -662,27 +676,15 @@ li {
 .home-logo {
     margin-left: auto;
     margin-right: auto;
-    // width: 450px;
-    // vertical-align: middle;
-    // padding: 10px 0;
-
     text-align: center;
     margin-top: 210px;
-
-
-
 }
 
 @media only screen and (min-width: 1000px) {
     .home-logo {
         margin-left: auto;
         margin-right: auto;
-
         margin-top: 250px;
-
-
-
-
     }
 }
 
@@ -690,12 +692,7 @@ li {
     .home-logo {
         margin-left: auto;
         margin-right: auto;
-
         margin-top: 280px;
-
-
-
-
     }
 }
 
@@ -705,14 +702,8 @@ li {
         margin-right: auto;
         width: 250px;
         margin-top: 180px;
-
-
-
-
     }
 }
-
-
 
 .message-ul {
     margin: 20px;
@@ -777,3 +768,131 @@ input[type="file"] {
 // background-color:#2D6C7A;
 // color:#FFFFFF;
 // }
+
+
+//hero
+.bgimage {
+  width:100%;
+  height:300px;
+  // background: url('https://wallpapercave.com/wp/wp2864012.gif');
+  background: url('https://cdn-images-1.medium.com/max/2000/1*q8HNVIql60d46VWjI5i2CQ.gif') no-repeat center center fixed;
+
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ background-color: black;
+
+
+}
+.bgimage h5 {
+  color:white;
+  text-shadow:2px 2px #333;
+  z-index: 0;
+}
+
+.profie-hero-image {
+    // z-index: 10;
+    width: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    border: white solid 2px;
+
+
+
+}
+
+.user-name-hero {
+    color: white;
+    vertical-align: middle;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.user-name-hero-h2 {
+    color: white;
+    vertical-align: middle;
+    margin-top: -15px;
+    font-size: 42px;
+}
+
+@media only screen and (max-width: 700px) {
+    .user-name-hero-h2 {
+        color: white;
+        vertical-align: middle;
+        margin-top: -15px;
+        font-size: 30px;
+    }
+
+    // .user-name-hero {
+    //     color: white;
+    //
+    //     margin-top: 50px;
+    //     font-size: 22px;
+    //     text-align: left;
+    // }
+    //
+    .profie-hero-image {
+        // z-index: 10;
+        width: 150px;
+        text-align: left;
+        // margin-left: auto;
+        // margin-right: auto;
+        border-radius: 50%;
+        border: white solid 2px;
+
+
+    }
+}
+
+
+
+.profile-info {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: black;
+    border: white 2px solid;
+    width: 40%;
+    padding: 20px;
+}
+
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    /* Background styles */
+   background-image: url(https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg);
+   background-size: cover;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+
+.hero h1 {
+    /* Text styles */
+    font-size: 5em;
+
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.hero .btn {
+    /* Positioning and sizing */
+    display: block;
+    width: 200px;
+
+    /* Border styles */
+    border: 3px solid black;
+}

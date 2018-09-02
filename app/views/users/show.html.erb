@@ -1,8 +1,42 @@
 <% provide(:title, @user.name) %>
+<section class="bgimage">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+          <h1 class="user-name-hero">
+              <% if @user.picture? %>
+                  <%= image_tag @user.picture.url, class: "profie-hero-image" if @user.picture? %>
+                  <%else%>
+                      <%= gravatar_for_profile @user, class: "profie-hero-image" %>
+
+
+
+              <%end%>
+
+          </h1>
+          <h2 class="user-name-hero-h2"><%= @user.name %></h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+      <button class="btn  btn-gold">Photos</button>
+      <button class="btn  btn-gold">Blogs</button>
+      <% if current_user?(@user) %>
+          <% else %>
+             <%= link_to "Messege Me", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-gold" %>
+
+          <% end %>
+
+  </div>
+</section>
+
+
 <div class="row">
+
   <aside class="col-md-4">
     <section>
-        <h1>
+        <!-- <h1>
             <% if @user.picture? %>
                 <%= image_tag @user.picture.url, class: "gravatar-profile" if @user.picture? %>
                 <%= @user.name %>
@@ -10,14 +44,8 @@
                 <%= gravatar_for @user %>
                 <%= @user.name %>
             <%end%>
-       </h1>
-      <% if current_user?(@user) %>
-          <span><%= link_to "Edit Profile", edit_user_path(current_user) %></span>
+       </h1> -->
 
-
-
-
-      <% end %>
 
 
     </section>
@@ -25,44 +53,34 @@
     <section class="messeges-btn">
 
         <% if current_user?(@user) %>
+            <% else %>
 
-
-
-        <% else %>
-
-            <%= link_to "Messege Me", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn col-md-12 col-xs-12 btn-lg btn-primary blog-btn" %>
-            <%= render 'follow_form' if logged_in? %>
-
-
-        <% end %>
+                <%= render 'follow_form' if logged_in? %>
+            <% end %>
     </section>
 
 
 
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
+
 
     <% if  @user.bio? %>
         <section class="bio">
             <h3>Bio</h3>
             <p><%= @user.bio %></p>
+            <% if current_user?(@user) %>
+                <span><%= link_to "Edit Profile", edit_user_path(current_user) %></span>
+            <% end %>
         </section>
     <% else %>
   	<% end %>
 
     <section class="micropost_form">
         <% if current_user?(@user) %>
-
-
-  		<section >
-  			<%= render 'shared/micropost_form' %>
-  		</section>
-
-
-  	<% else %>
-  	<% end %>
-
+            <section >
+      			<%= render 'shared/micropost_form' %>
+      		</section>
+        <% else %>
+  	    <% end %>
     </section>
 
   </aside>

@@ -7,7 +7,7 @@ class Micropost < ApplicationRecord
 
   validates :user_id, presence: true
 
-  
+
 
   #default_scope -> {  order(:cached_votes_score => :desc)}
 
