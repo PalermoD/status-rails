@@ -24,11 +24,14 @@
     </div>
   </div>
   <div class="col-md-12">
-      <button class="btn  btn-gold">Photos</button>
-      <button class="btn  btn-gold">Blogs</button>
+      <button class="btn  btn-gold"><i class="fa fa-camera" aria-hidden="true"></i>  Photos</button>
+      <button class="btn  btn-gold"> <i class="fa fa-pencil-square" aria-hidden="true"></i> Blogs</button>
       <% if current_user?(@user) %>
           <% else %>
-             <%= link_to "Messege Me", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-gold" %>
+              <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-gold" do %>
+                  <i class="fa fa-envelope" aria-hidden="true"></i> Message Me
+              <%end%>
+
 
           <% end %>
 
