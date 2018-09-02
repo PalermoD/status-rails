@@ -944,4 +944,27 @@ input[type="file"] {
 .unfollow-btn {
     background-color:#FF4343;
 	color: white !important;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 15px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 20px;
+    max-height: 150px;
+
+}
+
+.follow-btn {
+    // background-color:#FF4343;
+	color: white !important;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 15px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 20px;
+    max-height: 150px;
+
 }
