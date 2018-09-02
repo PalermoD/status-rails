@@ -6,9 +6,13 @@
 
           <h1 class="user-name-hero">
               <% if @user.picture? %>
-                  <%= image_tag @user.picture.url, class: "profie-hero-image" if @user.picture? %>
+                  <div class="image-cropper-profile">
+                      <%= image_tag @user.picture.url, class: "profie-hero-image" if @user.picture? %>
+                  </div>
                   <%else%>
+                  <div class="image-cropper-profile">
                       <%= gravatar_for_profile @user, class: "profie-hero-image" %>
+                  </div>
 
 
 
@@ -63,15 +67,34 @@
 
 
 
+
+
+
+
     <% if  @user.bio? %>
+
+
         <section class="bio">
+
+            <%= render 'shared/stats' %>
             <h3>Bio</h3>
+            <hr/>
             <p><%= @user.bio %></p>
             <% if current_user?(@user) %>
                 <span><%= link_to "Edit Profile", edit_user_path(current_user) %></span>
             <% end %>
         </section>
     <% else %>
+        <section class="bio">
+
+            <%= render 'shared/stats' %>
+            <h3>Bio</h3>
+            <hr/>
+            <p>Will update soon.</p>
+            <% if current_user?(@user) %>
+                <span><%= link_to "Edit Profile", edit_user_path(current_user) %></span>
+            <% end %>
+        </section>
   	<% end %>
 
     <section class="micropost_form">
