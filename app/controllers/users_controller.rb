@@ -9,9 +9,13 @@ class UsersController < ApplicationController
 
 
     def show
-        @micropost  = current_user.microposts.build
-        @user = User.find(params[:id])
-        @microposts = @user.microposts.order(created_at: :desc).paginate(page: params[:page])
+        if logged_in?
+            @micropost  = current_user.microposts.build
+            @user = User.find(params[:id])
+            @microposts = @user.microposts.order(created_at: :desc).paginate(page: params[:page])
+        else
+            redirect_to login_url
+        end
     end
 
     def new
