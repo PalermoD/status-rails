@@ -68,6 +68,12 @@ class User < ApplicationRecord
           Micropost.where("user_id IN (#{following_ids})
                           OR user_id = :user_id", user_id: id)
 
+
+
+      end
+
+      def microposts_pictures
+          Micropost.all
       end
 
       def global

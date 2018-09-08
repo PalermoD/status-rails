@@ -101,6 +101,17 @@
         </section>
   	<% end %>
 
+    <section class="photo-gallery">
+        <% if @user.microposts.any? %>
+            <h3>Photo Gallery</h3>
+            <div>
+                <% @user.microposts.find_each do |micropost| %>
+                        <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
+                <% end %>
+            </div>
+        <% end %>
+    </section>
+
     <section class="micropost_form">
         <% if current_user?(@user) %>
             <section >

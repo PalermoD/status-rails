@@ -968,3 +968,19 @@ input[type="file"] {
     max-height: 150px;
 
 }
+
+
+.photo-gallery {
+    background: black;
+    padding: 9px;
+    height: 400px;
+    color: #c39a54 !important;
+    text-align: center;
+    border-top: 9px black solid;
+    border-bottom: 9px black solid;
+    overflow-y: scroll;
+
+    img {
+        width: 100%;
+    }
+}
