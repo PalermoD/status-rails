@@ -979,6 +979,8 @@ input[type="file"] {
     border-top: 9px black solid;
     border-bottom: 9px black solid;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    
 
     img {
         width: 100%;
@@ -988,5 +990,4 @@ input[type="file"] {
 
 .user_form {
     margin-top: -50px;
-
 }
