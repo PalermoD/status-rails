@@ -112,16 +112,20 @@
         </section>
   	<% end %>
 
+<% if @user.microposts.any? %>
+    <% if @user.microposts.where(picture: true) %>
     <section class="photo-gallery">
-        <% if @user.microposts.any? %>
+
             <h3>Photo Gallery</h3>
             <div>
                 <% @user.microposts.find_each do |micropost| %>
                         <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
                 <% end %>
             </div>
-        <% end %>
+
     </section>
+    <% end %>
+<% end %>
 
 
 
