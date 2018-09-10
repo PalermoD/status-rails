@@ -1,0 +1,22 @@
+
+<div class="container">
+    <div class="row make-columns">
+
+        <% @user.microposts.find_each  do |micropost| %>
+        <% if micropost.picture? %>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                            <%= image_tag(micropost.picture.url, class:"img-responsive gal-img") if micropost.picture? %>
+                        </div>
+                    </div>
+                </div>
+            <%end%>
+
+        <% end %>
+
+    </div>
+    <%= will_paginate @microposts %>
+</div>

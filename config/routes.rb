@@ -16,11 +16,17 @@ Rails.application.routes.draw do
 
   get  '/create',    to: 'static_pages#create'
 
+
+
   resources :users do
     member do
       get :following, :followers
+      get :photos
+
     end
   end
+
+
 
   resources :microposts do
       resources :comments

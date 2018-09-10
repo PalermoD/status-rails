@@ -13,14 +13,24 @@ class UsersController < ApplicationController
             @micropost  = current_user.microposts.build
             @user = User.find(params[:id])
             @microposts = @user.microposts.order(created_at: :desc).paginate(page: params[:page])
-            @microposts_pictures = @user.microposts.order(created_at: :desc).limit(6)
-
-
-
-            # @gallery_items = @user.microposts.picture.order(created_at: :desc).paginate(page: params[:page])
+            @microposts_pictures = @user.microposts.where(picture: true)
         else
             redirect_to login_url
         end
+    end
+
+    def photos
+        if logged_in?
+            @micropost  = current_user.microposts.build
+            @user = User.find(params[:id])
+            @microposts = @user.microposts.order(created_at: :desc).paginate(page: params[:page])
+            @microposts_pictures = @user.microposts.where(picture: true)
+        else
+            redirect_to login_url
+        end
+    end
+
+    def show_blogs
     end
 
     def new

@@ -980,7 +980,7 @@ input[type="file"] {
     border-bottom: 9px black solid;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    
+
 
     img {
         width: 100%;
@@ -990,4 +990,29 @@ input[type="file"] {
 
 .user_form {
     margin-top: -50px;
+}
+
+
+.row.make-columns {
+    -moz-column-width: 19em;
+    -webkit-column-width: 19em;
+    -moz-column-gap: 1em;
+    -webkit-column-gap:1em;
+}
+.row.make-columns > div {
+    display: inline-block;
+    padding:  .5rem;
+    width:  100%;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+.gal-img {
+    margin: 3px;
+}
+
+.panel {
+    border: none;
 }
