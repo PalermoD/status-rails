@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+
+        <% @user.microposts.find_each  do |micropost| %>
+        <% if micropost.title? && micropost.picture? %>
+            <div class="col-md-4 user-blog-post">
+
+                        <%= link_to micropost do %>
+                            <span class="">
+
+                                <h2><%= link_to micropost.title, micropost, class: 'user_post_name' %></h2>
+
+
+                                <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
+
+                                <p class="blog-feed-content"><%= truncate(micropost.content, :length => 210, :omission => "" , :escape => false, class: 'blog-feed-content') %>
+                                    <%= link_to ' . . . read more', micropost, class: 'user_post_name' %>
+                                </p>
+
+
+                            </span>
+                        <%end %>
+
+            </div>
+            <%end%>
+
+        <% end %>
+
+    </div>
+
+</div>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
       get :photos
+      get :blogs
 
     end
   end

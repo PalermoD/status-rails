@@ -30,7 +30,15 @@ class UsersController < ApplicationController
         end
     end
 
-    def show_blogs
+    def blogs
+        if logged_in?
+            @micropost  = current_user.microposts.build
+            @user = User.find(params[:id])
+            @microposts = @user.microposts.order(created_at: :desc).paginate(page: params[:page])
+            @microposts_pictures = @user.microposts.where(picture: true)
+        else
+            redirect_to login_url
+        end
     end
 
     def new

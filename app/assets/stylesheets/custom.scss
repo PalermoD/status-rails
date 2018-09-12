@@ -1016,3 +1016,15 @@ input[type="file"] {
 .panel {
     border: none;
 }
+
+
+.user-blog-post {
+    background-color: #2b2b2b;
+    color: white;
+    border-radius: 5px;
+
+    h2 {
+        font-size: 35px;
+        margin: 10px;
+    }
+}

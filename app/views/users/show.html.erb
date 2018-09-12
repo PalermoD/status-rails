@@ -28,7 +28,9 @@
       <%= link_to photos_user_path, class: "btn btn-gold" do %>
              <i class="fa fa-camera" aria-hidden="true"></i>  Photos
       <%end%>
-      <button class="btn  btn-gold"> <i class="fa fa-pencil-square" aria-hidden="true"></i> Blogs</button>
+      <%= link_to blogs_user_path, class: "btn btn-gold" do %>
+          <i class="fa fa-pencil-square" aria-hidden="true"></i> Blogs
+      <% end %>
 
       <% if current_user?(@user) %>
           <% else %>
