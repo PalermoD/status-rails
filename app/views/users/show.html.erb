@@ -1,5 +1,67 @@
 <% provide(:title, @user.name) %>
 <% if logged_in? %>
+
+
+<style>
+    .user-hero {
+        width: 100%;
+        height: 300px;
+        background: url(<%= @user.hero.url %>);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color: black;
+
+
+    }
+</style>
+
+<% if @user.hero? %>
+<section class="user-hero">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+          <h1 class="user-name-hero">
+              <% if @user.picture? %>
+                  <div class="image-cropper-profile">
+                      <%= image_tag @user.picture.url, class: "profie-hero-image" if @user.picture? %>
+                  </div>
+                  <%else%>
+                  <div class="image-cropper-profile">
+                      <%= gravatar_for_profile @user, class: "profie-hero-image" %>
+                  </div>
+
+
+
+              <%end%>
+
+          </h1>
+          <h2 class="user-name-hero-h2"><%= @user.name %></h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+      <%= link_to photos_user_path, class: "btn btn-gold" do %>
+             <i class="fa fa-camera" aria-hidden="true"></i>  Photos
+      <%end%>
+      <%= link_to blogs_user_path, class: "btn btn-gold" do %>
+          <i class="fa fa-pencil-square" aria-hidden="true"></i> Blogs
+      <% end %>
+
+      <% if current_user?(@user) %>
+          <% else %>
+              <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-gold" do %>
+                  <i class="fa fa-envelope" aria-hidden="true"></i> Message Me
+              <%end%>
+
+
+          <% end %>
+
+  </div>
+</section>
+<% else %>
 <section class="bgimage">
   <div class="container-fluid">
     <div class="row">
@@ -43,6 +105,11 @@
 
   </div>
 </section>
+<% end %>
+
+
+
+
 
 
 <div class="row">

@@ -1028,3 +1028,13 @@ input[type="file"] {
         margin: 10px;
     }
 }
+
+.user-hero {
+    border: 2px solid black;
+    h2 {
+        // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        text-shadow: -1px 4px black, 0 4px black, 4px 0 black, 0 -1px black;
+    }
+
+
+}

@@ -101,7 +101,7 @@ class UsersController < ApplicationController
     end
 
     def user_edit_params
-    	params.require(:user).permit(:name, :email, :bio, :profile_image, :picture)
+    	params.require(:user).permit(:name, :email, :bio, :profile_image, :picture, :hero)
     end
 
     # Confirms a logged-in user.

@@ -27,6 +27,7 @@ class User < ApplicationRecord
       validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
       mount_uploader :picture, PictureUploader
+      mount_uploader :hero, PictureUploader
 
       # Returns the hash digest of the given string.
       def User.digest(string)
