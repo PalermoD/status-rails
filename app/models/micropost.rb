@@ -1,4 +1,9 @@
 class Micropost < ApplicationRecord
+  include SimpleHashtag::Hashtaggable
+
+  # attr_accessor :content
+  hashtaggable_attribute :content
+
   acts_as_votable
   belongs_to :user
   #default_scope -> { order(created_at: :desc) }
@@ -6,6 +11,8 @@ class Micropost < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :user_id, presence: true
+
+
 
 
 

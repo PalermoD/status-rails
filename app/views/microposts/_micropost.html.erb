@@ -18,7 +18,7 @@
         <% if micropost.picture? && !micropost.title? %>
             <span class="content">
 
-                <%= micropost.content %>
+                <%= linkify_hashtags(micropost.content) %>
                 <%= image_tag(micropost.picture.url, class:"img-responsive") if micropost.picture? %>
             </span>
         <% elsif micropost.title? && micropost.picture? %>
@@ -51,7 +51,7 @@
 
         <% else %>
             <span class="content-text col-md-10 col-xs-9">
-               <%= add_links(micropost.content) %>
+               <%= add_links(linkify_hashtags(micropost.content)) %>
             </span>
         <% end %>
 

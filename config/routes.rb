@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
@@ -36,6 +38,8 @@ Rails.application.routes.draw do
       get "dislike", to: "microposts#downvote"
     end
   end
+
+
 
   resources :articles
 
