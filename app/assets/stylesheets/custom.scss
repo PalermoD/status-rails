@@ -717,12 +717,21 @@ li {
     margin-top: 210px;
 }
 
+@media only screen and (max-width: 1900px) {
+
+
+    #user-info {
+        width: 22%;
+        position: fixed;
+    }
+}
+
 
 @media only screen and (max-width: 1600px) {
 
 
     #user-info {
-        width: 20%;
+        width: 25%;
         position: fixed;
     }
 }
@@ -731,7 +740,16 @@ li {
 
 
     #user-info {
-        width: 30%;
+        width: 28%;
+        position: fixed;
+    }
+}
+
+@media only screen and (max-width: 1060px) {
+
+
+    #user-info {
+        width: 31%;
         position: fixed;
     }
 }
